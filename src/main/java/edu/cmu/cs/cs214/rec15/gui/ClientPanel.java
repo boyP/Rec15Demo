@@ -200,10 +200,21 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
     @Override
     public void messageReceived(Message msg) {
 
+
         // TODO: Make the server show the timestamp of the received message.
         // Probably should use DateFormat (SimpleDateFormat) to format the date.
         // Date#getMinute, Date#getHour etc are deprecated in favor of this
         // method
+
+        // Formatter for the date. See link you want to change the output format
+        // https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+        // Usage: dateFormatter.format(date) -> String
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss Z");
+        dateFormatter.format(msg.getTimestamp());
+
+        // TODO: Make the server show the timestamp of the received message.
+        // Example output: [15:21:40 -0400] Person: Some message...
+
 
     		SimpleDateFormat date = new SimpleDateFormat();
     		date.format(msg.getTimestamp());
