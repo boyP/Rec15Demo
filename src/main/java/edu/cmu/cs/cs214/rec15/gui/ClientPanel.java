@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -204,6 +205,9 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
         // Date#getMinute, Date#getHour etc are deprecated in favor of this
         // method
 
+    		SimpleDateFormat date = new SimpleDateFormat();
+    		date.format(msg.getTimestamp());
+    	
         String newText = String.format(" %s: %s%n", msg.getSender(),
                 msg.getContent());
         this.chatArea.append(newText);
